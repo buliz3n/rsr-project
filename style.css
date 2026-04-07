@@ -265,8 +265,6 @@ body {
    overflow-y: auto;
 }
 
-/* AUTH / MENU BLOCKS */
-
 .menu-login-block,
 .menu-user-state {
    width: 100%;
@@ -292,8 +290,6 @@ body {
    margin-bottom: 16px;
 }
 
-/* ORTAK HALKA SİSTEMİ */
-
 .menu-login-badge,
 .menu-user-badge {
    position: relative;
@@ -307,8 +303,7 @@ body {
    flex-shrink: 0;
    backdrop-filter: blur(10px);
    -webkit-backdrop-filter: blur(10px);
-   transition: transform 0.28s ease, box-shadow 0.28s ease,
-      border-color 0.28s ease;
+   transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
 .menu-login-badge:hover,
@@ -328,8 +323,6 @@ body {
    letter-spacing: 0.16em;
    font-weight: 700;
 }
-
-/* FREE HALKA - GRİ PARLAK */
 
 .menu-login-badge {
    border: 1.5px solid rgba(205, 212, 220, 0.74);
@@ -356,9 +349,6 @@ body {
       0 0 18px rgba(210, 220, 230, 0.1);
 }
 
-/* PREMIUM HALKA - ALTIN PARLAK */
-/* FREE sayfada da aynı boyut sistemi korunsun diye burada da tanımlı bırakıldı */
-
 .menu-user-badge {
    border: 1.5px solid rgba(212, 177, 92, 0.82);
    background: radial-gradient(
@@ -384,8 +374,6 @@ body {
       0 0 20px rgba(214, 170, 66, 0.18);
 }
 
-/* FORM */
-
 .menu-login-form {
    display: grid;
    gap: 10px;
@@ -405,8 +393,7 @@ body {
    outline: none;
    font-size: 12px;
    text-align: center;
-   transition: border-color 0.18s ease, background 0.18s ease,
-      opacity 0.18s ease;
+   transition: border-color 0.18s ease, background 0.18s ease, opacity 0.18s ease;
 }
 
 .menu-login-form input::placeholder {
@@ -421,8 +408,6 @@ body {
 .menu-login-form input:disabled {
    opacity: 0.6;
 }
-
-/* BUTONLAR */
 
 .menu-login-actions {
    width: 100%;
@@ -466,8 +451,6 @@ body {
 .menu-signup-button {
    margin-top: 0;
 }
-
-/* MESAJ */
 
 .auth-message {
    margin: 4px 0 0;
@@ -568,8 +551,8 @@ body {
 .menu-list-links a {
    color: rgba(255, 255, 255, 0.74);
    text-decoration: none;
-   pointer-events: none;
-   cursor: default;
+   pointer-events: auto;
+   cursor: pointer;
 }
 
 .info-card {
