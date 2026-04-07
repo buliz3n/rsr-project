@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>rsrfree</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="app-shell">
+
+   <!-- GLOBAL HAMBURGER -->
+   <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç" aria-expanded="false" aria-controls="globalMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+   </button>
+
+   <!-- GLOBAL MENU -->
+   <div class="global-menu" id="globalMenu" aria-hidden="true">
+      <div class="global-menu-inner">
+         <div class="menu-login-block">
+            <div class="menu-login-hero" id="menuLoginHero">
+               <div class="menu-login-badge">
+                  <span class="menu-login-badge-label">FREE<br>ACCESS</span>
+               </div>
+            </div>
+
+            <form class="menu-login-form" id="menuLoginForm">
+               <input type="email" id="menuEmail" placeholder="E-posta" autocomplete="email" required />
+               <input type="password" id="menuPassword" placeholder="Şifre" autocomplete="current-password" required />
+
+               <div class="menu-login-actions">
+                  <button type="submit" class="menu-login-button">Giriş Yap</button>
+                  <button type="button" class="menu-login-button menu-signup-button" id="menuSignupButton">Üye Ol</button>
+               </div>
+
+               <p id="authMessage" class="auth-message"></p>
+            </form>
+
+            <div class="menu-user-state" id="menuUserState" style="display: none;">
+               <div class="menu-user-badge">
+                  <span class="menu-user-badge-label">PREMIUM<br>ACCESS</span>
+               </div>
+
+               <p id="menuUserEmail"></p>
+
+               <button type="button" class="menu-login-button" id="menuLogoutButton">
+                  Çıkış Yap
+               </button>
+            </div>
+         </div>
+         <div class="menu-accordion">
+            <div class="menu-section active">
+               <button class="menu-section-trigger" type="button">
+                  <span>Premium</span>
+                  <span class="menu-plus">+</span>
+               </button>
+               <div class="menu-section-panel">
+                  <p>
+                     En güçlü duraklar çoğu zaman ilk bakışta görünmez. Premium erişim ile rota
+                     üzerindeki özel yapıları, doğru mola noktalarını, öne çıkan kafe ve yemek
+                     duraklarını daha net ve daha düzenli biçimde keşfedebilirsin.
+                  </p>
+               </div>
+            </div>
+
+            <div class="menu-section">
+               <button class="menu-section-trigger" type="button">
+                  <span>Rotalar</span>
+                  <span class="menu-plus">+</span>
+               </button>
+               <div class="menu-section-panel">
+                  <p>
+                     Rize’de mutlaka görülmesi gereken ilçeler, vadiler ve özel duraklar bu
+                     rehberde bir araya gelir. Fındıklı, Ardeşen, Çamlıhemşin ve diğer rotalarda
+                     yönünü belirlemek ve seyahatini daha akıcı planlamak için bu alan sana rehberlik eder.
+                  </p>
+               </div>
+            </div>
+
+            <div class="menu-section">
+               <button class="menu-section-trigger" type="button">
+                  <span>Dil</span>
+                  <span class="menu-plus">+</span>
+               </button>
+               <div class="menu-section-panel">
+                  <ul class="menu-list">
+                     <li>Türkçe</li>
+                     <li>English</li>
+                     <li>Deutsch</li>
+                     <li>العربية</li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="menu-section">
+               <button class="menu-section-trigger" type="button">
+                  <span>İletişim</span>
+                  <span class="menu-plus">+</span>
+               </button>
+               <div class="menu-section-panel">
+                  <ul class="menu-list">
+                     <li>Rize Travel Studio</li>
+                     <li>hello@rizetravelstudio.com</li>
+                     <li>+90 850 000 00 00</li>
+                     <li>Fındıklı / Rize / Türkiye</li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="menu-section">
+               <button class="menu-section-trigger" type="button">
+                  <span>Yönlendirme</span>
+                  <span class="menu-plus">+</span>
+               </button>
+               <div class="menu-section-panel">
+                  <ul class="menu-list menu-list-links">
+                     <li><a href="javascript:void(0)">Trabzon Seyahat Rehberi (TSR)</a></li>
+                     <li><a href="javascript:void(0)">Giresun Seyahat Rehberi (GSR)</a></li>
+                     <li><a href="javascript:void(0)">Ordu Seyahat Rehberi (OSR)</a></li>
+                     <li><a href="javascript:void(0)">Samsun Seyahat Rehberi (SSR)</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <section class="hero-card active" id="anasayfa">
+      <div class="card-image hero-media">
+         <div class="hero-bg"></div>
+         <div class="hero-overlay"></div>
+
+         <div class="hero-content">
+            <p class="hero-kicker">Karadeniz'in kuzeydoğusu</p>
+            <h1>Rize Seyahat Rehberi</h1>
+            <p class="hero-description">
+               Sisli yaylalar, taş köprüler, çay bahçeleri ve derin vadiler arasında
+               ilerleyen yalın bir keşif deneyimi.
+            </p>
+         </div>
+
+         <div class="hero-explore" aria-hidden="true">
+            <span>Keşfet</span>
+            <svg viewBox="0 0 24 24">
+               <path d="M12 16.5a1 1 0 0 1-.7-.29l-6-6a1 1 0 1 1 1.4-1.42L12 14.1l5.3-5.31a1 1 0 1 1 1.4 1.42l-6 6a1 1 0 0 1-.7.29z"></path>
+            </svg>
+         </div>
+      </div>
+   </section>
+
+   <section class="info-card" id="cografi-konum">
+      <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80');">
+         <div class="info-heading">
+            <p class="info-kicker">Karadeniz'in farklı yüzleri</p>
+            <h2>Rize Rotaları</h2>
+            <p class="info-description">
+               Vadiler, şelaleler, çay bahçeleri ve sisli yaylalar.
+               Rize'nin rotalardan birini seçerek keşfe başla.
+            </p>
+         </div>
+      </div>
+
+      <div class="card-body">
+         <div class="region-grid">
+            <a href="#findikli-rota" class="region-tag" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80');"><span>Fındıklı</span></a>
+            <a href="#hemsin" class="region-tag" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80');"><span>Hemşin</span></a>
+            <a href="#ardesen" class="region-tag" style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80');"><span>Ardeşen</span></a>
+            <a href="#cayeli" class="region-tag" style="background-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80');"><span>Çayeli</span></a>
+            <a href="#camlihemsin" class="region-tag" style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80');"><span>Çamlı Hemşin</span></a>
+            <a href="#rize-merkez" class="region-tag" style="background-image:url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=900&q=80');"><span>Rize</span></a>
+            <a href="#pazar" class="region-tag" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80');"><span>Pazar</span></a>
+            <a href="#ikizdere" class="region-tag" style="background-image:url('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=80');"><span>İkizdere</span></a>
+         </div>
+      </div>
+   </section>
+
+   <section class="info-card" id="findikli-rota">
+      <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80');">
+         <div class="info-heading">
+            <p class="info-kicker">FINDIKLI</p>
+            <h2>Vadinin İki Yüzü</h2>
+            <p class="info-description">
+               Biri suyun izini sürer, diğeri yamaçlara yükselir.<br>
+               Aynı coğrafyada başlayan bu iki rota, bambaşka bir Fındıklı deneyimi sunar.<br>
+               Yönünü seç. Keşif oradan başlasın.
+            </p>
+         </div>
+      </div>
+
+      <div class="card-body">
+         <div class="region-grid">
+            <a href="https://codepen.io/mjoraste/debug/XJjVymw?authentication_hash=yPkJjNWqDWzk" class="region-tag" target="_top">
+               <span>Çağlayan Vadisi</span>
+            </a>
+            <a href="https://codepen.io" target="_blank" class="region-tag image-mini arili"><span>Arılı Vadisi</span></a>
+         </div>
+      </div>
+   </section>
+
+   <article class="place-card" id="ardesen">
+      <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80');"></div>
+      <div class="card-body">
+         <h2 class="card-title">Ardeşen</h2>
+         <p>Ardeşen, Rize’nin doğa ile macerayı en güçlü şekilde birleştiren ilçelerinden biridir. Fırtına Vadisi’ne açılan konumu sayesinde hem su sporları hem de tarihi köprülerle çevrili etkileyici manzara durakları burada bir araya gelir.</p>
+      </div>
+   </article>
+
+   <article class="place-card" id="camlihemsin">
+      <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80');"></div>
+      <div class="card-body">
+         <h2 class="card-title">Çamlı Hemşin</h2>
+         <p>Rize’nin en ikonik doğa ilçelerinden biri olan Çamlıhemşin, yaylaları, tarihi kaleleri, taş köprüleri ve gür şelaleleri ile Karadeniz seyahatlerinin merkez noktalarından biridir.</p>
+      </div>
+   </article>
+
+   <article class="place-card" id="pazar">
+      <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80');"></div>
+      <div class="card-body">
+         <h2 class="card-title">Pazar</h2>
+         <p>Pazar, Rize’nin sahil karakterini en iyi hissettiren ilçelerinden biridir. Karadeniz kıyısı ve tarihi savunma yapılarıyla güçlü bir başlangıç sunar.</p>
+      </div>
+   </article>
+
+   <article class="place-card" id="hemsin">
+      <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');"></div>
+      <div class="card-body">
+         <h2 class="card-title">Hemşin</h2>
+         <p>Hemşin, Rize’nin doğal güzelliği kadar kültürel kimliğiyle de öne çıkan ilçelerinden biridir.</p>
+      </div>
+   </article>
+
+   <article class="place-card" id="cayeli">
+      <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80');"></div>
+      <div class="card-body">
+         <h2 class="card-title">Çayeli</h2>
+         <p>Çayeli, çay bahçelerinin manzaraya hükmettiği ve kıyıdan içeri doğru yükselen yolların etkileyici görüntüler sunduğu ilçelerden biridir.</p>
+      </div>
+   </article>
+
+   <article class="place-card" id="rize-merkez">
+      <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80');"></div>
+      <div class="card-body">
+         <h2 class="card-title">Rize</h2>
+         <p>Rize şehir merkezi, kıyı şeridi ile çay kültürünü aynı potada buluşturan canlı bir şehir atmosferine sahiptir.</p>
+      </div>
+   </article>
+
+   <article class="place-card" id="ikizdere">
+      <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80');"></div>
+      <div class="card-body">
+         <h2 class="card-title">İkizdere</h2>
+         <p>Kaçkar Dağları’nın güçlü siluetine yaslanan İkizdere, yüksek rakımlı yaylaları ve geniş dağ manzaraları ile öne çıkar.</p>
+      </div>
+   </article>
+
+   <button class="home-button" id="homeButton" aria-label="Ana kartlara dön">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+         <path d="M12 3.2L4 9.6V20a1 1 0 0 0 1 1h4.8a1 1 0 0 0 1-1v-4.2h2.4V20a1 1 0 0 0 1 1H19a1 1 0 0 0 1-1V9.6l-8-6.4z"></path>
+      </svg>
+   </button>
+
+   <div class="screen-fade" id="screenFade"></div>
+</div>
+    <script src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'></script><script  src="./script.js"></script>
+
+  </body>
+  
+</html>
