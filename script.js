@@ -139,25 +139,26 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function showCard(targetId) {
-    const targetCard = document.querySelector(targetId);
-    const currentCard = getActiveCard();
+  const targetCard = document.querySelector(targetId);
+  const currentCard = getActiveCard();
 
-    if (!targetCard || currentCard === targetCard || isNavigating) return;
+  if (!targetCard || currentCard === targetCard || isNavigating) return;
 
-    closeMenu();
+  closeMenu();
 
-    if (fadeLayer) fadeLayer.classList.add("active");
+  if (fadeLayer) fadeLayer.classList.add("active");
 
-    setTimeout(() => {
-      if (currentCard) currentCard.classList.remove("active");
-      targetCard.classList.add("active");
-      updateHomeButton(targetCard);
-    }, 320);
+  setTimeout(() => {
+    if (currentCard) currentCard.classList.remove("active");
+    targetCard.classList.add("active");
+    updateHomeButton(targetCard);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, 320);
 
-    setTimeout(() => {
-      if (fadeLayer) fadeLayer.classList.remove("active");
-    }, 620);
-  }
+  setTimeout(() => {
+    if (fadeLayer) fadeLayer.classList.remove("active");
+  }, 620);
+}
 
   async function handleLogin(e) {
     e.preventDefault();
