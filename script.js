@@ -4,9 +4,13 @@ const SUPABASE_URL = "https://dxpzfxumtsdmrbiwxoqg.supabase.co";
 const SUPABASE_KEY = "sb_publishable_fJ2qpowLou20v_SwZITHfg_dP5vA-zR";
 
 const ROUTES = {
-   FREE: "https://cdpn.io/pen/debug/KwMmwOo?authentication_hash=NjMYzVVKdDXr",
-   PREMIUM:
-      "https://codepen.io/mjoraste/debug/azmYoxP?authentication_hash=nqMwvdJbYxBk"
+   FREE: "./index.html",
+   PREMIUM: "./rsrpremium.html",
+   PURCHASE: "./satinalma.html",
+   CAGLAYAN_FREE: "./caglayanvadisi.html",
+   CAGLAYAN_PREMIUM: "./caglayanpremium.html",
+   ARILI_FREE: "./arilivadisi.html",
+   ARILI_PREMIUM: "./07-arilipremium.html"
 };
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -37,9 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
    let isNavigating = false;
 
    function goTo(url) {
-      if (isNavigating) return;
+      if (isNavigating || !url) return;
       isNavigating = true;
-      window.location.replace(url);
+      window.location.href = url;
    }
 
    function getActiveCard() {
@@ -132,6 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
          if (currentCard) currentCard.classList.remove("active");
          targetCard.classList.add("active");
          updateHomeButton(targetCard);
+         targetCard.scrollTop = 0;
       }, 320);
 
       setTimeout(() => {
@@ -179,6 +184,8 @@ document.addEventListener("DOMContentLoaded", function () {
          setAuthMessage("Giriş başarısız: " + error.message, true);
          return;
       }
+
+      localStorage.setItem("rsrPremiumAccess", "true");
 
       closeMenu();
       setAuthMessage("");
