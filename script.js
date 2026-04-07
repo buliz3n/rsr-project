@@ -1,17 +1,17 @@
+console.log("supabase:", typeof supabase);
+
 const SUPABASE_URL = "https://dxpzfxumtsdmrbiwxoqg.supabase.co";
 const SUPABASE_KEY = "sb_publishable_fJ2qpowLou20v_SwZITHfg_dP5vA-zR";
 
 const ROUTES = {
-   FREE: "./index.html",
-   PREMIUM: "./rsrpremium.html",
-   PURCHASE: "./satinalma.html",
-   ARILI_PREMIUM: "./07-arilipremium.html"
+   FREE: "https://cdpn.io/pen/debug/KwMmwOo?authentication_hash=NjMYzVVKdDXr",
+   PREMIUM:
+      "https://codepen.io/mjoraste/debug/azmYoxP?authentication_hash=nqMwvdJbYxBk"
 };
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 document.addEventListener("DOMContentLoaded", function () {
-
    const fadeLayer = document.getElementById("screenFade");
    const heroCard = document.getElementById("anasayfa");
    const regionTags = document.querySelectorAll("#cografi-konum .region-tag");
@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
    let isNavigating = false;
 
    function goTo(url) {
-      if (isNavigating || !url) return;
+      if (isNavigating) return;
       isNavigating = true;
-      window.location.href = url;
+      window.location.replace(url);
    }
 
    function getActiveCard() {
@@ -61,11 +61,15 @@ document.addEventListener("DOMContentLoaded", function () {
    function closeMenu() {
       if (globalMenu) globalMenu.classList.remove("open");
       if (menuToggle) menuToggle.classList.remove("active");
+      if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+      if (globalMenu) globalMenu.setAttribute("aria-hidden", "true");
    }
 
    function openMenu() {
       if (globalMenu) globalMenu.classList.add("open");
       if (menuToggle) menuToggle.classList.add("active");
+      if (menuToggle) menuToggle.setAttribute("aria-expanded", "true");
+      if (globalMenu) globalMenu.setAttribute("aria-hidden", "false");
    }
 
    function toggleMenu(e) {
@@ -89,7 +93,15 @@ document.addEventListener("DOMContentLoaded", function () {
    }
 
    async function updateMenuUserState() {
-      const { data } = await client.auth.getUser();
+      if (isLoginRedirecting || isNavigating) return;
+
+      const { data, error } = await client.auth.getUser();
+
+      if (error) {
+         console.error("Kullanıcı bilgisi alınamadı:", error.message);
+         return;
+      }
+
       const user = data?.user;
 
       if (user) {
@@ -97,10 +109,12 @@ document.addEventListener("DOMContentLoaded", function () {
          if (menuLoginForm) menuLoginForm.style.display = "none";
          if (menuUserState) menuUserState.style.display = "grid";
          if (menuUserEmail) menuUserEmail.textContent = user.email || "";
+         setAuthMessage("");
       } else {
          if (menuLoginHero) menuLoginHero.style.display = "grid";
          if (menuLoginForm) menuLoginForm.style.display = "grid";
          if (menuUserState) menuUserState.style.display = "none";
+         if (menuUserEmail) menuUserEmail.textContent = "";
       }
    }
 
@@ -118,8 +132,6 @@ document.addEventListener("DOMContentLoaded", function () {
          if (currentCard) currentCard.classList.remove("active");
          targetCard.classList.add("active");
          updateHomeButton(targetCard);
-
-         window.scrollTo(0, 0); // FIX
       }, 320);
 
       setTimeout(() => {
@@ -129,14 +141,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
    async function handleLogin(e) {
       e.preventDefault();
+      if (isLoginRedirecting || isNavigating) return;
 
-      const email = menuEmail.value.trim();
-      const password = menuPassword.value;
+      const email = menuEmail ? menuEmail.value.trim() : "";
+      const password = menuPassword ? menuPassword.value : "";
 
       if (!email || !password) {
          setAuthMessage("E-posta ve şifre girin.", true);
          return;
       }
+
+      isLoginRedirecting = true;
+      setAuthMessage("Giriş yapılıyor...");
+
+      const submitButton = menuLoginForm
+         ? menuLoginForm.querySelector(
+              'button[type="submit"], .menu-login-button, input[type="submit"]'
+           )
+         : null;
+
+      if (submitButton) submitButton.disabled = true;
+      if (menuSignupButton) menuSignupButton.disabled = true;
+      if (menuEmail) menuEmail.disabled = true;
+      if (menuPassword) menuPassword.disabled = true;
 
       const { error } = await client.auth.signInWithPassword({
          email,
@@ -144,17 +171,36 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       if (error) {
-         setAuthMessage(error.message, true);
+         isLoginRedirecting = false;
+         if (submitButton) submitButton.disabled = false;
+         if (menuSignupButton) menuSignupButton.disabled = false;
+         if (menuEmail) menuEmail.disabled = false;
+         if (menuPassword) menuPassword.disabled = false;
+         setAuthMessage("Giriş başarısız: " + error.message, true);
          return;
       }
 
-      localStorage.setItem("rsrPremiumAccess", "true"); // FIX
+      closeMenu();
+      setAuthMessage("");
+
+      if (menuEmail) menuEmail.value = "";
+      if (menuPassword) menuPassword.value = "";
+
       goTo(ROUTES.PREMIUM);
    }
 
    async function handleSignup() {
-      const email = menuEmail.value.trim();
-      const password = menuPassword.value;
+      if (isLoginRedirecting || isNavigating) return;
+
+      const email = menuEmail ? menuEmail.value.trim() : "";
+      const password = menuPassword ? menuPassword.value : "";
+
+      if (!email || !password) {
+         setAuthMessage("Üyelik için e-posta ve şifre girin.", true);
+         return;
+      }
+
+      setAuthMessage("Üyelik oluşturuluyor...");
 
       const { error } = await client.auth.signUp({
          email,
@@ -162,17 +208,33 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       if (error) {
-         setAuthMessage(error.message, true);
+         setAuthMessage("Üyelik başarısız: " + error.message, true);
          return;
       }
 
-      setAuthMessage("Üyelik başarılı");
+      setAuthMessage("Üyelik oluşturuldu. Şimdi giriş yapabilirsin.");
    }
 
    async function handleLogout() {
-      await client.auth.signOut();
+      if (isNavigating) return;
+
+      const { error } = await client.auth.signOut();
+
+      if (error) {
+         console.error("Çıkış yapılırken hata:", error.message);
+         setAuthMessage("Çıkış yapılırken hata oluştu.", true);
+         return;
+      }
 
       localStorage.removeItem("rsrPremiumAccess");
+      sessionStorage.removeItem("rsrSelectedRoute");
+
+      if (menuLoginHero) menuLoginHero.style.display = "grid";
+      if (menuLoginForm) menuLoginForm.style.display = "grid";
+      if (menuUserState) menuUserState.style.display = "none";
+      if (menuUserEmail) menuUserEmail.textContent = "";
+      if (menuEmail) menuEmail.value = "";
+      if (menuPassword) menuPassword.value = "";
 
       goTo(ROUTES.FREE);
    }
@@ -183,6 +245,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
    menuTriggers.forEach((trigger) => {
       trigger.addEventListener("click", function () {
+         if (isNavigating) return;
+
          const parent = this.closest(".menu-section");
 
          menuSections.forEach((section) => {
@@ -208,6 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
    if (heroCard) {
       heroCard.addEventListener("click", function () {
          if (globalMenu && globalMenu.classList.contains("open")) return;
+         if (isNavigating) return;
          showCard("#cografi-konum");
       });
    }
@@ -215,8 +280,9 @@ document.addEventListener("DOMContentLoaded", function () {
    regionTags.forEach((tag) => {
       tag.addEventListener("click", function (e) {
          const href = this.getAttribute("href");
+         if (!href) return;
 
-         if (href && href.startsWith("#")) {
+         if (href.startsWith("#")) {
             e.preventDefault();
             showCard(href);
          }
@@ -225,9 +291,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
    if (homeButton) {
       homeButton.addEventListener("click", function () {
+         if (isNavigating) return;
          showCard("#cografi-konum");
       });
    }
+
+   document.addEventListener("click", function (e) {
+      if (!globalMenu || !globalMenu.classList.contains("open")) return;
+
+      const clickedMenu = globalMenu.contains(e.target);
+      const clickedToggle = menuToggle && menuToggle.contains(e.target);
+
+      if (!clickedMenu && !clickedToggle) {
+         closeMenu();
+      }
+   });
 
    updateHomeButton(getActiveCard());
    updateMenuUserState();
