@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>satınalma</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSR Premium Erişim</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">RSR Premium</p>
+        <h1>Premium erişim ile rotayı tam akışında aç</h1>
+        <p class="hero-copy">
+          Giriş yap, premium erişimini etkinleştir ve seçtiğin rotayı eksiksiz,
+          daha seçili ve daha akıcı bir deneyimle aç.
+        </p>
+
+        <div class="hero-actions">
+  <button class="button button-primary" id="openPremiumFlow" type="button">
+    Premium’u Aç
+  </button>
+</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="premiumOverlay" aria-hidden="true">
+    <div class="premium-modal" role="dialog" aria-modal="true" aria-labelledby="premiumModalTitle">
+      <button class="modal-close" id="closePremiumFlow" type="button" aria-label="Kapat">
+        <span>×</span>
+      </button>
+
+      <div class="modal-topbar">
+        <div class="modal-steps">
+          <span class="step-dot active" data-step-dot="1"></span>
+          <span class="step-dot" data-step-dot="2"></span>
+          <span class="step-dot" data-step-dot="3"></span>
+        </div>
+        <p class="modal-kicker" id="modalKicker">Adım 1 · Giriş</p>
+      </div>
+
+      <section class="modal-view active" data-step="1">
+        <div class="modal-copy">
+          <p class="eyebrow">RSR Premium</p>
+          <h2 id="premiumModalTitle">Önce hesabınla devam et</h2>
+          <p>
+            Premium içeriği açmadan önce giriş yap veya hesap oluştur.
+            Sonraki adımda premium erişim durumun kontrol edilir.
+          </p>
+        </div>
+
+        <div class="auth-switch">
+          <button class="switch-chip active" type="button" data-auth-tab="login">Giriş Yap</button>
+          <button class="switch-chip" type="button" data-auth-tab="signup">Kayıt Ol</button>
+        </div>
+
+        <div class="auth-panels">
+          <div class="auth-panel active" data-auth-panel="login">
+            <label class="field">
+              <span>E-posta</span>
+              <input type="email" placeholder="ornek@eposta.com" />
+            </label>
+
+            <label class="field">
+              <span>Şifre</span>
+              <input type="password" placeholder="••••••••" />
+            </label>
+
+            <button class="button button-primary full" id="continueLogin" type="button">
+              Giriş Yap ve Devam Et
+            </button>
+          </div>
+
+          <div class="auth-panel" data-auth-panel="signup">
+            <label class="field">
+              <span>Ad Soyad</span>
+              <input type="text" placeholder="Ad Soyad" />
+            </label>
+
+            <label class="field">
+              <span>E-posta</span>
+              <input type="email" placeholder="ornek@eposta.com" />
+            </label>
+
+            <label class="field">
+              <span>Şifre</span>
+              <input type="password" placeholder="••••••••" />
+            </label>
+
+            <button class="button button-primary full" id="continueSignup" type="button">
+              Kayıt Ol ve Devam Et
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="modal-view" data-step="2">
+        <div class="modal-copy">
+          <p class="eyebrow">Premium Erişim</p>
+          <h2>Premium’da açılanlar</h2>
+          <p>
+            Tam rota akışları, seçili durak düzeni, premium galeriler ve daha derin içerikler.
+            Devam etmek için premium erişimi etkinleştir.
+          </p>
+        </div>
+
+        <div class="plan-card">
+          <div class="plan-top">
+            <div>
+              <p class="plan-kicker">RSR Premium</p>
+              <h3>Aylık Premium Erişim</h3>
+            </div>
+            <div class="plan-price">
+              <strong>₺129</strong>
+              <span>/ ay</span>
+            </div>
+          </div>
+
+          <div class="plan-benefits">
+            <span class="benefit">Tam rota akışları</span>
+            <span class="benefit">Seçili durak düzeni</span>
+            <span class="benefit">Premium galeriler</span>
+            <span class="benefit">Derin içerikler</span>
+          </div>
+
+          <div class="plan-note">
+            Bu sürümde ödeme demo mantığıyla çalışır. Başarılı işlem sonrası premium erişim aktif kabul edilir.
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="button button-secondary" id="backToStep1" type="button">
+            Geri
+          </button>
+          <button class="button button-primary" id="goToStep3" type="button">
+            Ödeme Adımına Geç
+          </button>
+        </div>
+      </section>
+
+      <section class="modal-view" data-step="3">
+        <div class="modal-copy">
+          <p class="eyebrow">Ödeme</p>
+          <h2>Kart bilgilerini gir</h2>
+          <p>
+            Demo akışta bu alan görsel ödeme deneyimi sunar. Başarılı işlem sonrası premium erişim açılır ve ilgili rota sayfasına yönlendirme yapılır.
+          </p>
+        </div>
+
+        <div class="payment-card">
+  <div class="payment-badge">
+    <span class="badge-dot"></span>
+    Güvenli ödeme alanı
+  </div>
+
+  <label class="field">
+    <span>Kart Üzerindeki İsim</span>
+    <input type="text" placeholder="AD SOYAD" />
+  </label>
+
+  <label class="field">
+    <span>Kart Numarası</span>
+    <input
+      type="text"
+      id="cardNumber"
+      inputmode="numeric"
+      maxlength="19"
+      placeholder="1234 5678 9012 3456"
+    />
+  </label>
+
+  <div class="card-row">
+    <label class="field">
+      <span>Son Kullanma</span>
+      <input
+        type="text"
+        id="cardExpiry"
+        inputmode="numeric"
+        maxlength="5"
+        placeholder="AA/YY"
+      />
+    </label>
+
+    <label class="field">
+      <span>CVV</span>
+      <input
+        type="text"
+        id="cardCvv"
+        inputmode="numeric"
+        maxlength="3"
+        placeholder="123"
+      />
+    </label>
+  </div>
+</div>
+
+        <div class="modal-actions">
+          <button class="button button-secondary" id="backToStep2" type="button">
+            Geri
+          </button>
+          <button class="button button-primary" id="completePayment" type="button">
+            Ödemeyi Tamamla
+          </button>
+        </div>
+      </section>
+
+      <section class="modal-view" data-step="4">
+        <div class="success-view">
+          <div class="success-icon">✓</div>
+          <p class="eyebrow">Başarılı</p>
+          <h2>Premium erişim hazır</h2>
+          <p>
+            Erişimin etkinleştirildi. Şimdi seçtiğin premium rota sayfasına yönlendiriliyorsun.
+          </p>
+
+          <div class="modal-actions center">
+            <button class="button button-primary" id="closeSuccess" type="button">
+              Devam Et
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Hazır</div>
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
