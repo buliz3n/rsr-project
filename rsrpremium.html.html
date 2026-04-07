@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>rsrpremium</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="app-shell">
+   <!-- GLOBAL HAMBURGER -->
+   <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Menüyü aç"
+      aria-expanded="false"
+      aria-controls="globalMenu"
+   >
+      <span></span>
+      <span></span>
+      <span></span>
+   </button>
+
+   <!-- GLOBAL MENU -->
+   <div class="global-menu" id="globalMenu" aria-hidden="true">
+      <div class="global-menu-inner">
+         <div class="menu-user-state">
+            <div class="menu-user-badge">
+               <span class="menu-user-badge-label">PREMIUM ACCESS</span>
+            </div>
+
+            <div class="menu-user-email" id="menuUserEmail"></div>
+
+            <button class="menu-logout-button" id="logoutButton" type="button">
+               Çıkış Yap
+            </button>
+         </div>
+
+         <div class="menu-accordion">
+            <div class="menu-section active">
+               <button class="menu-section-trigger" type="button">
+                  <span>Premium Erişim</span>
+                  <span class="menu-plus">+</span>
+               </button>
+               <div class="menu-section-panel">
+                  <p>
+                     Premium erişim ile rotaların en doğru duraklarına daha hızlı ve
+                     daha net ulaşırsınız. Kalabalık bilgiler yerine, gerçekten
+                     değerli noktalar sade ve akıcı bir deneyimle sunulur.
+                  </p>
+               </div>
+            </div>
+
+            <div class="menu-section">
+               <button class="menu-section-trigger" type="button">
+                  <span>Ayrıcalıklar</span>
+                  <span class="menu-plus">+</span>
+               </button>
+               <div class="menu-section-panel">
+                  <p>
+                     Doğru noktalar öne çıkarılır, zamanını daha verimli
+                     kullanırsın ve keşfin daha akıcı hale gelir.
+                  </p>
+                  <ul class="premium-benefits">
+                     <li>Seçili ve güvenilir duraklar</li>
+                     <li>Daha sade ve anlaşılır rota akışı</li>
+                     <li>Zaman kaybını azaltan yönlendirme</li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="menu-section">
+               <button class="menu-section-trigger" type="button">
+                  <span>Dil</span>
+                  <span class="menu-plus">+</span>
+               </button>
+               <div class="menu-section-panel">
+                  <ul class="menu-list">
+                     <li>Türkçe</li>
+                     <li>English</li>
+                     <li>Deutsch</li>
+                     <li>العربية</li>
+                  </ul>
+                  <p class="menu-note">
+                     Dil desteği geliştirme aşamasındadır. Yakında farklı dil
+                     seçenekleri sunulacaktır.
+                  </p>
+               </div>
+            </div>
+
+            <div class="menu-section">
+               <button class="menu-section-trigger" type="button">
+                  <span>İletişim</span>
+                  <span class="menu-plus">+</span>
+               </button>
+               <div class="menu-section-panel">
+                  <ul class="menu-list">
+                     <li>Rize Travel Studio</li>
+                     <li>premium@rizetravelstudio.com</li>
+                     <li>+90 850 000 00 00</li>
+                     <li>Fındıklı / Rize / Türkiye</li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="menu-section">
+               <button class="menu-section-trigger" type="button">
+                  <span>Yönlendirme</span>
+                  <span class="menu-plus">+</span>
+               </button>
+               <div class="menu-section-panel">
+                  <ul class="menu-list menu-list-links">
+                     <li><a href="javascript:void(0)">Trabzon Seyahat Rehberi (TSR)</a></li>
+                     <li><a href="javascript:void(0)">Giresun Seyahat Rehberi (GSR)</a></li>
+                     <li><a href="javascript:void(0)">Ordu Seyahat Rehberi (OSR)</a></li>
+                     <li><a href="javascript:void(0)">Samsun Seyahat Rehberi (SSR)</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <section class="hero-card active" id="anasayfa">
+      <div class="card-image hero-media">
+         <div class="hero-bg"></div>
+         <div class="hero-overlay"></div>
+
+         <div class="hero-content">
+            <span class="premium-label">Premium</span>
+            <p class="hero-kicker">Seçili Rota Deneyimi</p>
+            <h1>Rize Seyahat Rehberi</h1>
+            <p class="hero-description">
+               Premium erişim ile Rize rotalarını daha net, daha seçili ve daha
+               akıcı bir yapı içinde keşfet.
+            </p>
+         </div>
+
+         <div class="hero-explore" aria-hidden="true">
+            <span>Keşfet</span>
+            <svg viewBox="0 0 24 24">
+               <path
+                  d="M12 16.5a1 1 0 0 1-.7-.29l-6-6a1 1 0 1 1 1.4-1.42L12 14.1l5.3-5.31a1 1 0 1 1 1.4 1.42l-6 6a1 1 0 0 1-.7.29z"
+               ></path>
+            </svg>
+         </div>
+      </div>
+   </section>
+
+   <section class="info-card" id="cografi-konum">
+      <div
+         class="card-image"
+         style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80');"
+      >
+         <div class="info-heading">
+            <p class="info-kicker">Premium seçim alanı</p>
+            <h2>Rize Premium Rotaları</h2>
+            <p class="info-description">
+               İlçeler, özel duraklar, anlaşmalı işletmeler ve daha düzenli
+               planlanmış premium rota akışları.
+            </p>
+         </div>
+      </div>
+
+      <div class="card-body">
+         <div class="region-grid">
+            <a
+               href="#findikli-rota"
+               class="region-tag"
+               style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80');"
+            ><span>Fındıklı</span></a>
+
+            <a
+               href="#hemsin"
+               class="region-tag"
+               style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80');"
+            ><span>Hemşin</span></a>
+
+            <a
+               href="#ardesen"
+               class="region-tag"
+               style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80');"
+            ><span>Ardeşen</span></a>
+
+            <a
+               href="#cayeli"
+               class="region-tag"
+               style="background-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80');"
+            ><span>Çayeli</span></a>
+
+            <a
+               href="#camlihemsin"
+               class="region-tag"
+               style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80');"
+            ><span>Çamlı Hemşin</span></a>
+
+            <a
+               href="#rize-merkez"
+               class="region-tag"
+               style="background-image:url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=900&q=80');"
+            ><span>Rize</span></a>
+
+            <a
+               href="#pazar"
+               class="region-tag"
+               style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80');"
+            ><span>Pazar</span></a>
+
+            <a
+               href="#ikizdere"
+               class="region-tag"
+               style="background-image:url('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=80');"
+            ><span>İkizdere</span></a>
+         </div>
+      </div>
+   </section>
+
+   <section class="info-card" id="findikli-rota">
+      <div
+         class="card-image"
+         style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80');"
+      >
+         <div class="info-heading">
+            <p class="info-kicker">FINDIKLI PREMIUM</p>
+            <h2>Vadinin İki Yüzü</h2>
+            <p class="info-description">
+               Premium sürümde Fındıklı’nın iki ana rotası daha açık, daha güçlü
+               ve daha seçili biçimde sunulur.
+            </p>
+         </div>
+      </div>
+
+      <div class="card-body">
+         <div class="region-grid">
+            <a
+               href="https://codepen.io/mjoraste/debug/OPRQROq"
+               target="_top"
+               class="region-tag image-mini caglayan"
+            >
+               <span>Çağlayan Premium</span>
+            </a>
+
+            <a
+               href="https://codepen.io/mjoraste/debug/EagRjwX?authentication_hash=yYMyLbenOWKk"
+               target="_top"
+               class="region-tag image-mini arili"
+            >
+               <span>Arılı Premium</span>
+            </a>
+         </div>
+      </div>
+   </section>
+
+   <article class="place-card" id="ardesen">
+      <div
+         class="card-image"
+         style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80');"
+      ></div>
+      <div class="card-body">
+         <h2 class="card-title">Ardeşen</h2>
+         <p>Premium sürümde Ardeşen için özel duraklar, rota sıralaması ve detaylı alanlar burada yer alacak.</p>
+      </div>
+   </article>
+
+   <article class="place-card" id="camlihemsin">
+      <div
+         class="card-image"
+         style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80');"
+      ></div>
+      <div class="card-body">
+         <h2 class="card-title">Çamlı Hemşin</h2>
+         <p>Premium sürümde Çamlıhemşin için seçilmiş rota akışı ve özel deneyim durakları burada yer alacak.</p>
+      </div>
+   </article>
+
+   <article class="place-card" id="pazar">
+      <div
+         class="card-image"
+         style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80');"
+      ></div>
+      <div class="card-body">
+         <h2 class="card-title">Pazar</h2>
+         <p>Premium sürümde Pazar için sahil ve çevre durakları daha seçili biçimde açılacak.</p>
+      </div>
+   </article>
+
+   <article class="place-card" id="hemsin">
+      <div
+         class="card-image"
+         style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');"
+      ></div>
+      <div class="card-body">
+         <h2 class="card-title">Hemşin</h2>
+         <p>Premium sürümde Hemşin için kültürel ve doğal durakların daha güçlü seçkisi burada yer alacak.</p>
+      </div>
+   </article>
+
+   <article class="place-card" id="cayeli">
+      <div
+         class="card-image"
+         style="background-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80');"
+      ></div>
+      <div class="card-body">
+         <h2 class="card-title">Çayeli</h2>
+         <p>Premium sürümde Çayeli için manzara noktaları ve rota sıralaması daha net biçimde sunulacak.</p>
+      </div>
+   </article>
+
+   <article class="place-card" id="rize-merkez">
+      <div
+         class="card-image"
+         style="background-image:url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80');"
+      ></div>
+      <div class="card-body">
+         <h2 class="card-title">Rize</h2>
+         <p>Premium sürümde Rize merkez için öne çıkan duraklar ve daha doğru mola akışı burada sunulacak.</p>
+      </div>
+   </article>
+
+   <article class="place-card" id="ikizdere">
+      <div
+         class="card-image"
+         style="background-image:url('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80');"
+      ></div>
+      <div class="card-body">
+         <h2 class="card-title">İkizdere</h2>
+         <p>Premium sürümde İkizdere için yüksek rakımlı seçili duraklar ve yön akışı burada yer alacak.</p>
+      </div>
+   </article>
+
+   <button class="home-button" id="homeButton" aria-label="Ana kartlara dön">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+         <path d="M12 3.2L4 9.6V20a1 1 0 0 0 1 1h4.8a1 1 0 0 0 1-1v-4.2h2.4V20a1 1 0 0 0 1 1H19a1 1 0 0 0 1-1V9.6l-8-6.4z"></path>
+      </svg>
+   </button>
+
+   <div class="screen-fade" id="screenFade"></div>
+</div>
+    <script src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'></script><script  src="./script.js"></script>
+
+  </body>
+  
+</html>
