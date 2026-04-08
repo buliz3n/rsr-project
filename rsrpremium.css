@@ -75,6 +75,7 @@ body.premium-ready {
    transform: scale(1.015);
    transition: opacity 0.7s ease, transform 0.7s ease, visibility 0.7s ease;
 }
+
 .hero-card.active,
 .info-card.active,
 .place-card.active {
@@ -148,7 +149,7 @@ body.premium-ready {
 .hero-card .card-image.hero-media {
    height: 100%;
    margin: 0;
-   border-radius: 22px;
+   border-radius: 18px;
    background: #0b0f19;
 }
 
@@ -363,21 +364,15 @@ body.premium-ready {
    text-align: center;
 }
 
-/* PREMIUM HALKA */
 .menu-user-badge {
    position: relative;
    width: 154px;
    height: 154px;
    border-radius: 50%;
    overflow: hidden;
-
-   background: transparent;
-
-   background: rgba(255,255,255,0.01);
+   background: rgba(255, 255, 255, 0.01);
    -webkit-backdrop-filter: blur(6px);
-
    border: 1px solid rgba(255, 212, 110, 0.34);
-
    box-shadow:
       inset 0 1px 0 rgba(255, 240, 190, 0.10),
       0 10px 24px rgba(0, 0, 0, 0.34),
@@ -411,16 +406,12 @@ body.premium-ready {
    left: 50%;
    transform: translate(-50%, -50%);
    white-space: nowrap;
-
    font-family: Georgia, "Times New Roman", serif;
    font-size: 36px;
    font-weight: 500;
    line-height: 1;
    letter-spacing: 0.005em;
-
    color: #f2c65d;
-   text-shadow: none;
-   animation: none;
 }
 
 .menu-user-badge-label::after {
@@ -430,34 +421,12 @@ body.premium-ready {
    bottom: 35px;
    transform: translateX(-50%);
    white-space: nowrap;
-
    font-family: Georgia, "Times New Roman", serif;
    font-size: 11px;
    font-weight: 500;
    line-height: 1;
    letter-spacing: 0.34em;
-
    color: rgba(245, 208, 118, 0.92);
-   text-shadow: none;
-   animation: none;
-}
-
-@keyframes premiumRingBreath {
-   0% {
-      border-color: rgba(255, 212, 110, 0.22);
-      box-shadow:
-         inset 0 1px 0 rgba(255, 240, 190, 0.08),
-         0 10px 24px rgba(0, 0, 0, 0.34),
-         0 0 8px rgba(255, 196, 76, 0.06);
-   }
-
-   100% {
-      border-color: rgba(255, 220, 130, 0.40);
-      box-shadow:
-         inset 0 1px 0 rgba(255, 246, 210, 0.12),
-         0 13px 28px rgba(0, 0, 0, 0.38),
-         0 0 18px rgba(255, 196, 76, 0.16);
-   }
 }
 
 #menuUserEmail,
@@ -1047,43 +1016,6 @@ body.premium-ready {
    }
 }
 
-@keyframes premiumRingBreath {
-   0% {
-      border-color: rgba(255, 215, 140, 0.12);
-      box-shadow:
-         inset 0 1px 0 rgba(255, 245, 220, 0.04),
-         0 10px 24px rgba(0, 0, 0, 0.34),
-         0 0 10px rgba(214, 170, 66, 0.04);
-   }
-   100% {
-      border-color: rgba(255, 215, 140, 0.18);
-      box-shadow:
-         inset 0 1px 0 rgba(255, 245, 220, 0.06),
-         0 13px 28px rgba(0, 0, 0, 0.38),
-         0 0 16px rgba(214, 170, 66, 0.09);
-   }
-}
-
-@keyframes premiumTextDrift {
-   0% {
-      transform: translate(-50%, -50%);
-   }
-   100% {
-      transform: translate(-50%, -51.5%);
-   }
-}
-
-@keyframes premiumAccessDrift {
-   0% {
-      transform: translateX(-50%);
-      opacity: 0.64;
-   }
-   100% {
-      transform: translateX(-50%) translateY(-1px);
-      opacity: 0.76;
-   }
-}
-
 @media (max-width: 768px) {
    .app-shell {
       max-width: 100%;
@@ -1249,105 +1181,6 @@ body.premium-ready {
       right: 22px;
       bottom: 88px;
    }
-
-   .hero-content h1 {
-      font-size: 30px;
-      line-height: 1.04;
-   }
-
-   .hero-description {
-      font-size: 13px;
-      line-height: 1.6;
-      max-width: 30ch;
-   }
-
-   .hero-explore {
-      bottom: 16px;
-      font-size: 9px;
-   }
-
-   .premium-label {
-      padding: 4px 10px;
-      font-size: 10px;
-      letter-spacing: 0.20em;
-   }
-
-   .hero-kicker {
-      font-size: 11px;
-   }
-
-   .info-heading {
-      left: 18px;
-      right: 18px;
-   }
-
-   .info-heading h2 {
-      font-size: 20px;
-   }
-
-   #cografi-konum .card-image {
-      height: 54%;
-   }
-
-   #cografi-konum .card-body {
-      height: 46%;
-      flex: 0 0 46%;
-      padding: 10px 10px 12px;
-   }
-
-   #cografi-konum .region-grid {
-      gap: 6px;
-   }
-
-   #cografi-konum .region-tag {
-      min-height: 50px;
-      border-radius: 12px;
-   }
-
-   #cografi-konum .region-tag span {
-      font-size: 12px;
-      line-height: 1.1;
-   }
-
-   .menu-user-badge {
-      width: 154px;
-      height: 154px;
-   }
-
-   .menu-user-badge-label::before {
-      font-size: 36px;
-   }
-
-   .menu-user-badge-label::after {
-      font-size: 11px;
-      bottom: 35px;
-   }
-}
-
-@supports not (height: 100dvh) {
-   .app-shell,
-   .hero-card,
-   .info-card,
-   .place-card {
-      min-height: 100vh;
-      height: 100vh;
-   }
-}
-
-@media (max-width: 480px) {
-   .hero-card,
-   .info-card,
-   .place-card {
-      width: 99%;
-      min-height: 99dvh;
-      height: 99dvh;
-      border-radius: 10px;
-   }
-  .global-menu {
-      width: 60%;
-      border-radius: 10px 0 0 10px;
-   }
-}
 
    .hero-content h1 {
       font-size: 30px;
