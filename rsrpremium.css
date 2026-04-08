@@ -41,13 +41,16 @@ body.premium-ready {
 .app-shell {
    position: relative;
    width: 100%;
-   max-width: 780px;
+   max-width: 100%;
    min-height: 100dvh;
    height: 100dvh;
-   margin: 0 auto;
+   margin: 0;
    overflow: hidden;
    background: #0b0f19;
    isolation: isolate;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 .hero-card,
@@ -55,11 +58,12 @@ body.premium-ready {
 .place-card {
    position: absolute;
    inset: 0;
-   width: 100%;
-   min-height: 100dvh;
-   height: 100dvh;
+   width: 99%;
+   min-height: 99dvh;
+   height: 99dvh;
+   margin: auto;
    background: #111827;
-   border-radius: 22px;
+   border-radius: 18px;
    overflow: hidden;
    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
    display: flex;
@@ -312,12 +316,15 @@ body.premium-ready {
 
 .global-menu {
    position: absolute;
-   inset: 0;
+   top: 0;
+   right: 0;
+   width: 60%;
+   height: 100%;
    z-index: 1300;
    opacity: 0;
    visibility: hidden;
    pointer-events: none;
-   border-radius: 22px;
+   border-radius: 18px 0 0 18px;
    background: rgba(7, 10, 16, 0.94);
    backdrop-filter: blur(14px);
    -webkit-backdrop-filter: blur(14px);
@@ -1084,23 +1091,28 @@ body.premium-ready {
    .hero-card,
    .info-card,
    .place-card {
-      min-height: 100dvh;
-      height: 100dvh;
-      border-radius: 0;
+      width: 99%;
+      min-height: 99dvh;
+      height: 99dvh;
+      border-radius: 12px;
    }
 
-   .global-menu,
+   .global-menu {
+      width: 60%;
+      height: 100%;
+      border-radius: 12px 0 0 12px;
+   }
    .hero-card .card-image.hero-media,
    .info-card .card-image,
    #findikli-rota .card-image,
    .place-card .card-image {
-      border-radius: 0;
+      border-radius: 12px;
    }
 
    .card-image {
       margin-left: 0;
       margin-right: 0;
-      border-radius: 0;
+      border-radius: 12px;
    }
 
    .global-menu-inner {
@@ -1213,11 +1225,124 @@ body.premium-ready {
 }
 
 @media (max-width: 480px) {
+   .hero-card,
+   .info-card,
+   .place-card {
+      width: 99%;
+      min-height: 99dvh;
+      height: 99dvh;
+      border-radius: 10px;
+   }
+
+   .global-menu {
+      width: 60%;
+      border-radius: 10px 0 0 10px;
+   }
+
    .hero-content {
       left: 22px;
       right: 22px;
       bottom: 88px;
    }
+
+   .hero-content h1 {
+      font-size: 30px;
+      line-height: 1.04;
+   }
+
+   .hero-description {
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 30ch;
+   }
+
+   .hero-explore {
+      bottom: 16px;
+      font-size: 9px;
+   }
+
+   .premium-label {
+      padding: 4px 10px;
+      font-size: 10px;
+      letter-spacing: 0.20em;
+   }
+
+   .hero-kicker {
+      font-size: 11px;
+   }
+
+   .info-heading {
+      left: 18px;
+      right: 18px;
+   }
+
+   .info-heading h2 {
+      font-size: 20px;
+   }
+
+   #cografi-konum .card-image {
+      height: 54%;
+   }
+
+   #cografi-konum .card-body {
+      height: 46%;
+      flex: 0 0 46%;
+      padding: 10px 10px 12px;
+   }
+
+   #cografi-konum .region-grid {
+      gap: 6px;
+   }
+
+   #cografi-konum .region-tag {
+      min-height: 50px;
+      border-radius: 12px;
+   }
+
+   #cografi-konum .region-tag span {
+      font-size: 12px;
+      line-height: 1.1;
+   }
+
+   .menu-user-badge {
+      width: 154px;
+      height: 154px;
+   }
+
+   .menu-user-badge-label::before {
+      font-size: 36px;
+   }
+
+   .menu-user-badge-label::after {
+      font-size: 11px;
+      bottom: 35px;
+   }
+}
+
+@supports not (height: 100dvh) {
+   .app-shell,
+   .hero-card,
+   .info-card,
+   .place-card {
+      min-height: 100vh;
+      height: 100vh;
+   }
+}
+
+@media (max-width: 480px) {
+   .hero-card,
+   .info-card,
+   .place-card {
+      width: 99%;
+      min-height: 99dvh;
+      height: 99dvh;
+      border-radius: 10px;
+   }
+  .global-menu {
+      width: 60%;
+      border-radius: 10px 0 0 10px;
+   }
+}
 
    .hero-content h1 {
       font-size: 30px;
