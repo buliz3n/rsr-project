@@ -9,6 +9,15 @@
   </head>
     
   <body>
+    <script>
+(async function () {
+   const premiumAccess = localStorage.getItem("rsrPremiumAccess");
+
+   if (premiumAccess !== "true") {
+      window.location.href = "./index.html";
+   }
+})();
+</script>
   <div class="app-shell">
    <!-- GLOBAL HAMBURGER -->
    <button
