@@ -213,9 +213,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   });
 
-  if (logoutButton) {
-    logoutButton.addEventListener("click", handleLogout);
-  }
+ if (logoutButton) {
+  logoutButton.addEventListener("click", async function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    await handleLogout();
+  });
+}
 
   if (heroCard) {
     heroCard.style.cursor = "pointer";
