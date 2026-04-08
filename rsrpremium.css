@@ -346,6 +346,7 @@ body.premium-ready {
    overflow-y: auto;
    -webkit-overflow-scrolling: touch;
    scrollbar-width: none;
+   width: 100%;
 }
 
 .global-menu-inner::-webkit-scrollbar {
@@ -531,7 +532,8 @@ body.premium-ready {
 
 .menu-section-panel p {
    margin: 0;
-   max-width: 440px;
+   max-width: none;
+   width: 100%;
    font-size: 12.5px;
    line-height: 1.75;
    color: rgba(255, 255, 255, 0.72);
@@ -596,9 +598,9 @@ body.premium-ready {
    align-items: center;
    justify-content: center;
    width: 100%;
-   max-width: 360px;
-   height: 38px;
-   padding: 0 16px;
+   max-width: none;
+   min-height: 44px;
+   padding: 0 18px;
    border-radius: 999px;
    border: 0.5px solid rgba(255, 255, 255, 0.14);
    background: rgba(255, 255, 255, 0.04);
@@ -606,8 +608,11 @@ body.premium-ready {
    font-weight: 600;
    color: rgba(255, 255, 255, 0.82);
    white-space: nowrap;
-   flex-shrink: 0;
    cursor: pointer;
+   appearance: none;
+   -webkit-appearance: none;
+   box-shadow: none;
+   outline: none;
    transition:
       background 0.18s ease,
       border-color 0.18s ease,
