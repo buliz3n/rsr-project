@@ -4,7 +4,7 @@ const SUPABASE_URL = "https://dxpzfxumtsdmrbiwxoqg.supabase.co";
 const SUPABASE_KEY = "sb_publishable_fJ2qpowLou20v_SwZITHfg_dP5vA-zR";
 
 const ROUTES = {
-  FREE: "https://cdpn.io/pen/debug/KwMmwOo?authentication_hash=NjMYzVVKdDXr"
+  FREE: "./index.html"
 };
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
